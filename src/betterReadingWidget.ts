@@ -89,13 +89,7 @@ export function betterReadingExtension(app: App, plugin: betterReadingPlugin) {
 						const markDeco = Decoration.mark({ class: "cm-better-reading" });
 						let wordLength = to - from;
 
-						if (wordLength <= 3) {
-							betterReadingDecos.push(markDeco.range(from, from +1));
-						} else if (wordLength === 4) {
-							betterReadingDecos.push(markDeco.range(from, from + 2));
-						} else if (wordLength > 4) {
-							betterReadingDecos.push(markDeco.range(from, from + Math.ceil(wordLength * 0.50)));
-						}
+						betterReadingDecos.push(markDeco.range(from, from + Math.ceil(wordLength / 2)));
 					}
 				}
 				return {
