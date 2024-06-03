@@ -62,13 +62,7 @@ export const rules: HighlightRule[] = [
             let boldLength = 0;
             const wordLength = word.trim().length;
 
-            if (wordLength < 3) {
-                boldLength = 1;
-            } else if (wordLength === 4) {
-                boldLength = 2;
-            } else {
-                boldLength = Math.ceil(wordLength * 0.50);
-            }
+            boldLength = Math.ceil(wordLength / 2);
 
             if (!boldLength) return createSpan("strong");
 
